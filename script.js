@@ -1,4 +1,4 @@
-const app = new Vue(
+new Vue(
     {
         el: '#app',
         data: {
@@ -9,10 +9,12 @@ const app = new Vue(
         },
         methods: {
             getEmailsRandom: function(){
-                axis.get("https://flynn.boolean.careers/exercises/api/random/mail")
-                .then((response) => {
-                    this.emails.push("response.data.response")
-                })
+                for(let i = 0; i < 10; i++){
+                    axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+                    .then((response) => {
+                    this.emails.push(response.data.response);
+                    });
+                };
             }
         },
     }
